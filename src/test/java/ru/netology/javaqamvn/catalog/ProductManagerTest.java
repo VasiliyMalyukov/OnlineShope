@@ -33,11 +33,32 @@ public class ProductManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    //Ищем один продукт:
     @Test
-    public void testSearchBy() {
+    public void testSearchByOneProduct() {
 
         Product[] expected = {product3};
         Product[] actual = manager.searchBy("IPhone X");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //Ищем 2 продукта:
+    @Test
+    public void testSearchBySomeProducts() {
+
+        Product[] expected = {product1, product2};
+        Product[] actual = manager.searchBy("а");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    //Ищем 0 продуктов:
+    @Test
+    public void testSearchByZeroProduct() {
+
+        Product[] expected = {};
+        Product[] actual = manager.searchBy("u");
 
         Assertions.assertArrayEquals(expected, actual);
     }
